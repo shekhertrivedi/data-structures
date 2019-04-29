@@ -8,10 +8,11 @@ import java.util.Set;
 public class MoveZeroesAtLastInPlace {
 
 	public static void main(String[] args) {
-		// int[] nums = {1,2,0,3,4};
+		//int[] nums = {1,2,0,3,4};
 		int[] nums = { 0, 0, 1 };
 		MoveZeroesAtLastInPlace m = new MoveZeroesAtLastInPlace();
-		m.moveZeroes(nums);
+		//m.moveZeroes(nums);
+		m.moveZeroes1(nums);
 		for (int n : nums) {
 			System.out.print(n);
 		}
@@ -41,6 +42,21 @@ public class MoveZeroesAtLastInPlace {
 				continue;
 			}
 			i++;
+		}
+	}
+	
+	public void moveZeroes1(int[] nums) {
+		int slow = 0,fast = 0;
+		while(fast<nums.length) {
+			if(nums[fast] != 0) {
+				nums[slow] = nums[fast];
+				slow++;
+			}
+			fast++;
+		}
+		while(slow < nums.length) {
+			nums[slow] = 0;
+			slow++;
 		}
 	}
 	
